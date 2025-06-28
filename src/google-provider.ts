@@ -1,5 +1,5 @@
 import { BaseSocialLogin } from './base';
-import type { GoogleLoginOptions, LoginResult, ProviderResponseMap, AuthorizationCode } from './definitions';
+import type { AuthorizationCode, GoogleLoginOptions, LoginResult, ProviderResponseMap } from './definitions';
 
 export class GoogleSocialLogin extends BaseSocialLogin {
   private clientId: string | null = null;
@@ -358,9 +358,7 @@ export class GoogleSocialLogin extends BaseSocialLogin {
               resolve({
                 provider: 'google' as T,
                 result: {
-                  accessToken: {
-                    token: accessToken.token,
-                  },
+                  accessToken,
                   idToken,
                   profile: {
                     email: profile.email || null,
